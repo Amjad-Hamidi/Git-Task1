@@ -57,7 +57,7 @@ Practical Part: Using SSH to link a local Git repository to GitHub
    - I copied the entire output.
 3. Add the public key to my GitHub account:
    - I went to: GitHub → Settings → SSH and GPG keys → New SSH key.
-   - I pasted the copied key and gave it a title (My Git Task1).
+   - I pasted the copied key and gave it a title (My_Git Task1 SSH).
 4. Create a new GitHub repository (I did not add README):
    - Repository name: Git-Task1
    - I selected SSH as the cloning method.
