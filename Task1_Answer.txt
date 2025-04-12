@@ -1,0 +1,74 @@
+Theoretical Part:
+
+1. Explain the purpose of the following Git commands:
+
+a. git status:
+   - Shows the current state of the working directory and staging area. It tells you which changes are staged, unstaged, or untracked.
+
+b. git init:
+   - Initializes a new Git repository in the current directory, enabling version control.
+
+c. git commit:
+   - Saves the staged changes (from git add) into the local repository with a descriptive message.
+
+d. git push:
+   - Uploads the local commits (git bash) to a remote repository (Github) by a connection name and branch name, origin is popular connection and main/master is popular branch.
+
+2. Ahmed claims that there is no need for the git add command and that committing changes directly from the working directory is better.
+
+   - I disagree with Ahmed. The `git add` (staging area) command is essential for filtering to decide which files should be committed. (I can't convert files to local repo directly without deciding which files to be migratting). 
+
+3. Answer the following questions about code hosting providers:
+
+a. Two popular code hosting platforms besides GitHub:
+   - GitLab
+   - Bitbucket
+
+b. Key features code hosting providers offer:
+   - Version control system integration
+   - Showcase or share your work
+   - Issue and bug tracking
+   - Pull/Merge request functionality
+   - Reviewing code by others, and make suggestions to improve it
+   - Continuous Integration/Continuous Deployment (CI/CD)
+   - Team and permission management
+
+c. True or False:
+   - True. A team can collaborate using a self-hosted version control server like GitLab CE without relying on public hosting services.
+
+4. What does the -u flag in the git push -u origin main command mean?
+
+   - After using it once, future git push or git pull commands can be used without specifying the remote or branch name.
+---------------------------------------------------------------
+
+Practical Part: Using SSH to link a local Git repository to GitHub
+
+1. Copy the SSH URL of the repository:
+   Command:
+     ssh-keygen -t rsa -b 4096 -C "amjada871@yahoo.com"
+   - This creates a new SSH key pair.
+   - When asked for file location, I pressed Enter to use the default path.
+   - The keys are saved in:
+     - Private key: ~/.ssh/id_rsa
+     - Public key: ~/.ssh/id_rsa.pub
+2. Copy the public key:
+   Command:
+     cat ~/.ssh/id_rsa.pub
+   - I copied the entire output.
+3. Add the public key to my GitHub account:
+   - I went to: GitHub → Settings → SSH and GPG keys → New SSH key.
+   - I pasted the copied key and gave it a title (e.g., "My Laptop").
+4. Create a new GitHub repository (I did not add README):
+   - Repository name: Git-Task1
+   - I selected SSH as the cloning method.
+   - The SSH URL is: git@github.com:Amjad-Hamidi/Git-Task1.git
+5. On my local machine, I ran these commands:
+   ```bash
+   mkdir Git-Task1
+   cd Git-Task1
+   git init
+   touch answers.txt
+   git add answers.txt
+   git commit -m "Initial commit"
+   git remote add origin git@github.com:Amjad-Hamidi/Git-Task1.git
+   git push -u origin main
